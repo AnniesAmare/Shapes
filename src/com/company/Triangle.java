@@ -9,8 +9,16 @@ public class Triangle extends Shape {
     public Point getCenter(){
         return null;
     }
-    public void computeArea() {}
-    public void computeCirc() {}
-    public void computeDist() {}
-    public void includesPoint() {}
+    public double computeArea(){
+        return 0;
+    }
+    public double computeCirc(){
+        return 0;
+    }
+    public double computeDist(){
+        return 0;
+    }
+    public boolean includesPoint(){
+        return true;
+    }
 }
