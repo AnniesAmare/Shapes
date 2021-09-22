@@ -26,8 +26,8 @@ public class Rectangle extends Shape {
     public Point getCenter() {
         return null;
     }
-    public void computeArea() {}
-    public void computeCirc() {}
-    public void computeDist() {}
-    public void includesPoint() {}
+    public double computeArea() { return 1;}
+    public double computeCirc() {return 1;}
+    public double computeDist() {return 1;}
+    public boolean includesPoint() {return false;}
 }
