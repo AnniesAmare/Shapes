@@ -5,7 +5,7 @@ public class Triangle extends Shape {
     Point pointA;
     Point pointB;
     Point pointC;
-    Point middlePoint;
+    Point center;
     public Point getCenter(){
         return null;
     }

@@ -7,12 +7,12 @@ public class Circle extends Shape {
 
     //Constructors
     public Circle(Point a, double radius) {
-        this.middlePoint = a;
+        this.center = a;
         this.radius = radius;
     }
 
     public Circle(int x, int y, double radius) {
-        this.middlePoint = new Point(x,y);
+        this.center = new Point(x,y);
         this.radius = radius;
     }
 

@@ -2,7 +2,7 @@ package com.company;
 import java.awt.*;
 
 public abstract class Shape {
-    Point middlePoint;
+    Point center;
 
     public abstract Point getCenter();
     public abstract double computeArea();
