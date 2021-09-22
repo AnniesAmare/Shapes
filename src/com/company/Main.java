@@ -5,7 +5,7 @@ public class Main {
 
     public static void main(String[] args) {
         Point a = new Point(10,5);
-        System.out.println(a.toString());
+        System.out.println("NO ONE HAS FUCKED THIS UP YET");
 	    // This is a github TEST
         // OW has arrived 2.0
         //test. this is gitHub test #simone
