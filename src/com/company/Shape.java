@@ -5,8 +5,8 @@ public abstract class Shape {
     Point middlePoint;
 
     public abstract Point getCenter();
-    public void computeArea() {}
-    public void computeCirc() {}
-    public void computeDist() {}
-    public void includesPoint() {}
+    public abstract double computeArea();
+    public abstract double computeCirc();
+    public abstract double computeDist();
+    public boolean includesPoint();
 }
