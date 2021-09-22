@@ -1,6 +1,7 @@
 package com.company;
 import java.awt.*;
 
+//Anne-Thea arbejder på det her og den tilhørende test
 public class Circle extends Shape {
     double radius;
 
