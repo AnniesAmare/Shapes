@@ -15,8 +15,8 @@ public class Rectangle extends Shape {
     }
 
     //to display overloading. Not needed
-    public Rectangle(int x, int y){
-        this.cornerPoint = new Point(x,y, double h, double w);
+    public Rectangle(int x, int y, double h, double w){
+        this.cornerPoint = new Point(x,y);
         this.height = h;
         this.width = w;
     }
