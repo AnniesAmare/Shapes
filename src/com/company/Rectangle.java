@@ -29,5 +29,5 @@ public class Rectangle extends Shape {
     public double computeArea() { return 1;}
     public double computeCirc() {return 1;}
     public double computeDist() {return 1;}
-    public boolean includesPoint() {return false;}
+    public boolean includesPoint() {return false;} //try again now
 }
