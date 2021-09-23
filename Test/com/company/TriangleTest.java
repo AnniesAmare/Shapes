@@ -9,4 +9,11 @@ class TriangleTest {
     @Test
     void getCenterTest() {
     }
+    @org.junit.jupiter.api.Test
+    void computeAreaTest() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void computeCircTest() {
+    }
 }
