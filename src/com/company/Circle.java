@@ -32,6 +32,6 @@ public class Circle extends Shape {
     }
     public boolean includesPoint() {
         return false;
-    }
+    } //missing fix
 
 }
