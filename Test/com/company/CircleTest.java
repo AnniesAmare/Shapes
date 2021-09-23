@@ -14,9 +14,11 @@ class CircleTest {
 
     @org.junit.jupiter.api.Test
     void computeAreaTest() {
+        assertEquals(circle.computeArea(),100*Math.PI);
     }
 
     @org.junit.jupiter.api.Test
     void computeCircTest() {
+        assertEquals(circle.computeCirc(),2*Math.PI*5);
     }
 }
