@@ -16,17 +16,22 @@ public class Circle extends Shape {
         this.radius = radius;
     }
 
+    //Methods
     public Point getCenter() {
-        return null;
+        return this.center;
     }
     public double computeArea() {
-        return 0;
+        double r = this.radius;
+        double area = Math.PI*Math.pow(r,2);
+        return area;
     }
     public double computeCirc() {
-        return 0;
+        double r = this.radius;
+        double circ = 2*Math.PI*r;
+        return circ;
     }
     public boolean includesPoint() {
-        return true;
+        return false;
     }
 
 }
