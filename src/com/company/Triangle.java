@@ -15,7 +15,7 @@ public class Triangle extends Shape {
     public double computeCirc(){
         return 0;
     }
-    public boolean includesPoint(){
+    public boolean includesPoint(Point a){
         return true;
     }
 }
