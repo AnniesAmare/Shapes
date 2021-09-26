@@ -31,14 +31,13 @@ public class Circle extends Shape {
         return circ;
     }
     public boolean includesPoint(Point a) {
-        double x1 = this.center.getX();
-        double y1 = this.center.getY();
-        double x2 = a.getX();
-        double y2 = a.getY();
-        double powSum = Math.pow(x2-x1,2)+Math.pow(y2-y1,2);
-        double dist = Math.sqrt(powSum);
+        double dist = getDist(this.center,a);
+        if (dist>this.radius) {
+            return false;
+        } else {
+            return true;
+        }
 
-        return false;
     }
 
 }

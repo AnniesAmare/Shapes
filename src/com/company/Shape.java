@@ -9,9 +9,7 @@ public abstract class Shape {
     public abstract double computeArea(); //Computes the area of a given shape
     public abstract double computeCirc(); //Computes the circumference of a shape
     public double computeDistTo(Shape a){ //Computes the euclidean distance between the center of two shapes
-        Point thisCenter = this.center;
-        Point aCenter = a.center;
-        double dist = getDist(thisCenter,aCenter);
+        double dist = getDist(this.center,a.center);
         return dist;
     }
 
