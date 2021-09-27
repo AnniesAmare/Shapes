@@ -18,20 +18,13 @@ class TriangleTest {
     void getCenterTest() {
         Point expectedCenter = new Point(3,2);
         assertEquals(arbitraryTriangleTest.getCenter(),expectedCenter);
-        System.out.println(arbitraryTriangleTest.getCenter());
+        //System.out.println(arbitraryTriangleTest.getCenter());
     }
-
-   /* @org.junit.jupiter.api.Test
-    void  triangleTypeCheckTest1(){
-        assertTrue(rightTriangleTest.triangleTypeCheck());
-        System.out.println(rightTriangleTest.triangleTypeCheck());
-
-    }*/
 
     @Test
     void triangleSidesCalculationTest(){
         assertTrue(Arrays.equals(rightTriangleTest.findTriangleSides(), findTriangleSidesTestExpected));
-        System.out.println(Arrays.toString(rightTriangleTest.findTriangleSides()));
+        //System.out.println(Arrays.toString(rightTriangleTest.findTriangleSides()));
     }
 
     @Test
@@ -41,33 +34,12 @@ class TriangleTest {
         assertFalse(rightTriangleTest.isolateHypotenuse() == null);
     }
 
-    /*
     @org.junit.jupiter.api.Test
-    void herePrebTest() {
-
-        test = rightTriangleTest.findTriangleSides(rightTriangleTest.vertexA,
-                rightTriangleTest.vertexB, rightTriangleTest.vertexC);
-
-        System.out.println(test.toString());
-        System.out.print(rightTriangleSides.toString());
-
+    void  triangleTypeCheckTest1(){
+        assertTrue(rightTriangleTest.triangleTypeCheck());
+        assertFalse(arbitraryTriangleTest.triangleTypeCheck());
+        //System.out.println(rightTriangleTest.triangleTypeCheck());
     }
-
-
-    @org.junit.jupiter.api.Test
-    void findTriangleSidesTest(){
-        assertEquals(rightTriangleTest.findTriangleSides
-                (this.rightTriangleTest.vertexA, this.rightTriangleTest.vertexB, this.rightTriangleTest.vertexC)
-                ,rightTriangleSides);
-
-    }
-
-    @org.junit.jupiter.api.Test
-    void triangleTypeCheckTest(){
-        assertTrue(rightTriangleTest.triangleTypeCheck(rightTriangleTest.findTriangleSides
-                (this.rightTriangleTest.vertexA, this.rightTriangleTest.vertexB, this.rightTriangleTest.vertexC)));
-    }
-    */
 
     @org.junit.jupiter.api.Test
     void computeAreaTest1() {
