@@ -17,6 +17,7 @@ public class Triangle extends Shape {
         this.vertexC = c;
     }
 
+
     //Overloading to specify coordinates (not really needed, but used for ease of point input)
     public Triangle(int x1, int y1, int x2, int y2, int x3, int y3){
         this.vertexA = new Point(x1,y1);
@@ -45,32 +46,23 @@ public class Triangle extends Shape {
         return centroid;
     }
 
-    public int[] findTriangleSides(){
+    public double[] findTriangleSides(){
         Point a = this.vertexA;
         Point b = this.vertexB;
         Point c = this.vertexC;
-        double x1 = a.getX();
-        double y1 = a.getY();
-        double x2 = b.getX();
-        double y2 = b.getY();
-        double x3 = c.getX();
-        double y3 = c.getY();
 
-
-        //Sides are calculated by finding the distance between the vertices
-        int sideAB = (int) Math.sqrt(Math.pow(x2-x1,2)+Math.pow(y2-y1,2)); //typecasting
-        int sideBC = (int) Math.sqrt(Math.pow(x3-x2,2)+Math.pow(y3-y2,2)); //typecasting
-        int sideCA = (int) Math.sqrt(Math.pow(x1-x3,2)+Math.pow(y1-y3,2)); //typecasting
+        double sideAB = getDist(a,b);
+        double sideBC = getDist(b,c);
+        double sideCA = getDist(c,a);
 
         //Insert new values into the array to be returned
-        int[] triangleSides = {sideAB, sideBC, sideCA};
-
+        double [] triangleSides = {sideAB, sideBC, sideCA};
 
         return triangleSides;
     }
 
     public boolean triangleTypeCheck(){
-        int sides[] = findTriangleSides();
+        int sides[] = {1,2,3}; //dummy-placeholder
         int sideAB = sides[0];
         int sideBC = sides[1];
         int sideCA = sides[2];
@@ -138,7 +130,6 @@ public class Triangle extends Shape {
             Triangle is therefore by default arbitrary */
             return rightTriangle = false;
         }
-
     }
 
     public double hypotenuse(){
@@ -150,7 +141,7 @@ public class Triangle extends Shape {
 
     public double computeArea(){
         double area = 0;
-        int triangleSides[] = findTriangleSides();
+        int triangleSides[] = {1,2,3}; //dummy-placeholder
         int sideAB = triangleSides[0];
         int sideBC = triangleSides[1];
         int sideCA = triangleSides[2];

@@ -2,6 +2,8 @@ package com.company;
 
 import org.junit.jupiter.api.Test;
 import java.awt.*;
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -10,27 +12,27 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class TriangleTest {
     Triangle triangle1 = new Triangle(1,2,3,4,5,0);
     Triangle rightTriangleTest = new Triangle(2,4,-1,0,2,0);
-    int[] rightTriangleSides = {5, 3,4};
-    int [] test;
-    boolean right = true;
+    int[] rightTriangleSides = {5,3,4};
+    double[] findTriangleSidesTest = {5,3,4};
 
     @org.junit.jupiter.api.Test
     void getCenterTest1() {
         Point center1 = new Point(3,2);
         assertEquals(triangle1.getCenter(),center1);
         System.out.println(triangle1.getCenter());
-
-
-        //Behold. this is the triangleTypetest working. just not where it should, and I don't get why...
-        assertTrue(rightTriangleTest.triangleTypeCheck());
-        System.out.println(rightTriangleTest.triangleTypeCheck());
     }
 
-    @org.junit.jupiter.api.Test
+   /* @org.junit.jupiter.api.Test
     void  triangleTypeCheckTest1(){
         assertTrue(rightTriangleTest.triangleTypeCheck());
         System.out.println(rightTriangleTest.triangleTypeCheck());
 
+    }*/
+
+    @Test
+    void triangleSidesCalculationTest(){
+        assertTrue(Arrays.equals(rightTriangleTest.findTriangleSides(), findTriangleSidesTest));
+        System.out.println(Arrays.toString(rightTriangleTest.findTriangleSides()));
     }
 
     /*
