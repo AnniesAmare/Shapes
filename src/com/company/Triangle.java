@@ -80,7 +80,7 @@ public class Triangle extends Shape {
 
         //finding out which side of the triangle would be the hypotenuse if it were right-angled
         loop1: //labelling loop for later break statement
-        for(int i = 0; i <= sides.length; i++){
+        for(int i = 0; i < sides.length; i++){
             if(sides[i] == sides[0]){
                 sideAB = sides[0];
                 if(sides[0] > sides[1] && sides[0] > sides[2]){
@@ -100,8 +100,6 @@ public class Triangle extends Shape {
                     CA = true;
                     break loop1;
                 }
-            }else{
-                System.out.println("ERROR: hypotenuse cannot be determined");
             }
 
         }
@@ -133,11 +131,11 @@ public class Triangle extends Shape {
             }
 
         }else{
-            System.out.println("ERROR: Whether triangle is right-angled or not cannot be determined");
+             /*Since rightTriangle has remained false till here, that means that the hypotenuse couldn't be found.
+            Triangle is therefore by default arbitrary */
+            return rightTriangle = false;
         }
 
-
-        return rightTriangle;
     }
 
     public double computeArea(){
