@@ -9,7 +9,12 @@ public class Triangle extends Shape {
     Point vertexC;
     Point centroid; //fancy (correct) geometric designation for the center of a triangle
     boolean rightTriangle = false; //If boolean remains false, then triangle is arbitrary
+    public double sideAB;
+    public double sideBC;
+    public double sideCA;
     public double hypotenuse;
+    public double base;
+    public double altitude;
 
     //Constructor
     public Triangle(Point a, Point b, Point c) {
@@ -52,9 +57,9 @@ public class Triangle extends Shape {
         Point b = this.vertexB;
         Point c = this.vertexC;
 
-        double sideAB = getDist(a,b);
-        double sideBC = getDist(b,c);
-        double sideCA = getDist(c,a);
+        sideAB = getDist(a,b);
+        sideBC = getDist(b,c);
+        sideCA = getDist(c,a);
 
         //Insert new values into the array to be returned
         double [] triangleSides = {sideAB, sideBC, sideCA};
@@ -64,21 +69,21 @@ public class Triangle extends Shape {
 
     public double[] isolateHypotenuse(){
         double[] sideValues = findTriangleSides();
-        double sideAB = sideValues[0];
-        double sideBC = sideValues[1];
-        double sideCA = sideValues[2];
+        double AB = sideValues[0];
+        double BC = sideValues[1];
+        double CA = sideValues[2];
 
-        if(sideAB > sideBC && sideAB > sideCA){
-            hypotenuse = sideAB;
-            double[] legsOfTheTriangle1 = {sideBC, sideCA};
+        if(AB > BC && AB > CA){
+            hypotenuse = AB;
+            double[] legsOfTheTriangle1 = {BC, CA};
             return legsOfTheTriangle1;
-        }else if(sideBC > sideAB && sideBC > sideCA){
-            hypotenuse = sideBC;
-            double[] legsOfTheTriangle2 = {sideAB, sideCA};
+        }else if(BC > AB && BC > CA){
+            hypotenuse = BC;
+            double[] legsOfTheTriangle2 = {AB, CA};
             return legsOfTheTriangle2;
-        }else if(sideCA > sideAB && sideCA > sideBC){
-            hypotenuse = sideAB;
-            double[] legsOfTheTriangle3 = {sideAB, sideBC};
+        }else if(CA > AB && CA > BC){
+            hypotenuse = AB;
+            double[] legsOfTheTriangle3 = {AB, BC};
             return legsOfTheTriangle3;
         }else{
             return null;
@@ -92,11 +97,13 @@ public class Triangle extends Shape {
             return rightTriangle = false;
         }else{
             double[] triangleLegs = isolateHypotenuse();
-            double base = Math.pow(triangleLegs[0],2);
-            double altitude = Math.pow(triangleLegs[1],2);
+            base = triangleLegs[0];
+            altitude = triangleLegs[1];
+            double powBase = Math.pow(base,2);
+            double powAltitude = Math.pow(altitude,2);
             double hyp = Math.pow(hypotenuse,2);
 
-            if(hyp == base + altitude){
+            if(hyp == powBase + powAltitude){
                 return rightTriangle = true;
             }else{
                 return rightTriangle = false;
@@ -106,42 +113,70 @@ public class Triangle extends Shape {
 
 
     public double computeArea(){
-        double area = 0;
-        int triangleSides[] = {1,2,3}; //dummy-placeholder
-        int sideAB = triangleSides[0];
-        int sideBC = triangleSides[1];
-        int sideCA = triangleSides[2];
+        double area;
 
-        boolean AB = true; //test value - have to be fixed to get real value
-        boolean BC = true; //test value - have to be fixed to get real value
-        boolean CA = true; //test value - have to be fixed to get real value
-
-
-        if(rightTriangle){
-            if(AB){
-                area = 1/2 * sideBC * sideCA;
-
-            }else if(BC){
-                area = 1/2 * sideAB * sideCA;
-
-            }else if(CA){
-                area = 1/2 * sideAB * sideBC;
-
-            }else{
-                System.out.println("ERROR");
-            }
-
+        if(triangleTypeCheck() == true){
+            area = 0.5 * base * altitude; //area-calculation for right-angled triangle
         }else{
-
+            /*Calculating area of arbitrary triangle by using 'Heron's Formula' -->
+            https://www.cuemath.com/measurement/area-of-triangle-with-3-sides/
+             */
+            double semiPerimeter = (sideAB + sideBC + sideCA)/2;
+            area = Math.sqrt(semiPerimeter *
+                    (semiPerimeter - sideAB) * (semiPerimeter - sideBC) * (semiPerimeter - sideCA));
         }
-
         return area;
     }
+
     public double computeCirc(){
-        return 0;
+        double circumference;
+        circumference = sideAB + sideBC + sideCA;
+        return circumference;
     }
-    public boolean includesPoint(Point a){
-        return true;
+
+    public boolean includesPoint(Point p){
+        /*REFERENCES FOR CALCULATIONS
+        formula:
+        https://www.geeksforgeeks.org/check-whether-a-given-point-lies-inside-a-triangle-or-not/
+        example:
+        https://www.youtube.com/watch?v=qObJQesvZUU
+         */
+
+        Point a = this.vertexA;
+        Point b = this.vertexB;
+        Point c = this.vertexC;
+        double x1 = a.getX();
+        double y1 = a.getY();
+        double x2 = b.getX();
+        double y2 = b.getY();
+        double x3 = c.getX();
+        double y3 = c.getY();
+        double pX = p.getX();
+        double pY = p.getY();
+
+        /* NOTE: I should be able to substitute the A-calculation with the area method.
+        Though further testing is required to confirm whether that would change the result*/
+        //area of triangle ABC --> used formula
+        double A = (x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2))/2;
+
+        //area of triangle PAB
+        double A1 = (pX * (y1 - y2) + x1 * (y2 - pY) + x2 * (pY - y1))/2;
+
+        //area of triangle PBC
+        double A2 = (pX * (y2 - y3) + x2 * (y3 - pY) + x3 * (pY - y2))/2;
+
+        //area of triangle PAC
+        double A3 = (pX * (y1 - y3) + x1 * (y3 - pY) + x3 * (pY - y1))/2;
+
+        double sum = A1 + A2 + A3;
+
+
+        if(sum == A){
+            return true;
+        }else{
+            return false;
+        }
+
     }
 
 

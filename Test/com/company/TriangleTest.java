@@ -12,7 +12,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class TriangleTest {
     Triangle arbitraryTriangleTest = new Triangle(1,2,3,4,5,0);
     Triangle rightTriangleTest = new Triangle(2,4,-1,0,2,0);
-    double[] findTriangleSidesTestExpected = {5,3,4};
+    double[] findTriangleSidesTestExpected = {5,3,4}; //right-angled
+    //2,4,4
 
     @org.junit.jupiter.api.Test
     void getCenterTest() {
@@ -42,7 +43,9 @@ class TriangleTest {
     }
 
     @org.junit.jupiter.api.Test
-    void computeAreaTest1() {
+    void computeAreaTest1() { //this test needs fixing
+        System.out.println(rightTriangleTest.computeArea());
+        System.out.println(arbitraryTriangleTest.computeArea());
     }
 
     @org.junit.jupiter.api.Test
