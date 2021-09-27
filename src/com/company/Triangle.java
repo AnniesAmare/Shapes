@@ -9,6 +9,7 @@ public class Triangle extends Shape {
     Point vertexC;
     Point centroid; //fancy (correct) geometric designation for the center of a triangle
     boolean rightTriangle = false; //If boolean remains false, then triangle is arbitrary
+    public double hypotenuse;
 
     //Constructor
     public Triangle(Point a, Point b, Point c) {
@@ -61,83 +62,48 @@ public class Triangle extends Shape {
         return triangleSides;
     }
 
-    public boolean triangleTypeCheck(){
-        int sides[] = {1,2,3}; //dummy-placeholder
-        int sideAB = sides[0];
-        int sideBC = sides[1];
-        int sideCA = sides[2];
-        boolean AB = false;
-        boolean BC = false;
-        boolean CA = false;
+    public double[] isolateHypotenuse(){
+        double[] sideValues = findTriangleSides();
+        double sideAB = sideValues[0];
+        double sideBC = sideValues[1];
+        double sideCA = sideValues[2];
 
-
-        //I SHOULD METHOD THIS OUT SEPARATELY!!!!!!!!!!!!!!!!!
-
-        //finding out which side of the triangle would be the hypotenuse if it were right-angled
-        loop1: //labelling loop for later break statement
-        for(int i = 0; i < sides.length; i++){
-            if(sides[i] == sides[0]){
-                sideAB = sides[0];
-                if(sides[0] > sides[1] && sides[0] > sides[2]){
-                    AB = true;
-                    break loop1;
-                }
-            }else if(sides[i] == sides[1]){
-                sideBC = sides[1];
-                if(sides[1] > sides[0] && sides[1] > sides[2]){
-                    BC = true;
-                    break loop1;
-                }
-
-            }else if(sides[i] == sides[2]){
-                sideCA = sides[2];
-                if(sides[2] > sides[0] && sides[2] > sides[1]){
-                    CA = true;
-                    break loop1;
-                }
-            }
-
-        }
-
-        //Confirm whether triangle is right-angled or not using Pythagoras' theorem
-        double ABCheck = Math.pow(sideAB,2);
-        double BCCheck = Math.pow(sideBC,2);
-        double CACheck = Math.pow(sideCA,2);
-
-        if(AB){
-            if(ABCheck == BCCheck + CACheck){
-                return rightTriangle = true;
-            }else{
-                return rightTriangle = false;
-            }
-
-        }else if(BC){
-            if(BCCheck == ABCheck + CACheck){
-                return rightTriangle = true;
-            }else{
-                return rightTriangle = false;
-            }
-
-        }else if(CA){
-            if(CACheck == ABCheck + BCCheck){
-                return rightTriangle = true;
-            }else{
-                return rightTriangle = false;
-            }
-
+        if(sideAB > sideBC && sideAB > sideCA){
+            hypotenuse = sideAB;
+            double[] legsOfTheTriangle1 = {sideBC, sideCA};
+            return legsOfTheTriangle1;
+        }else if(sideBC > sideAB && sideBC > sideCA){
+            hypotenuse = sideBC;
+            double[] legsOfTheTriangle2 = {sideAB, sideCA};
+            return legsOfTheTriangle2;
+        }else if(sideCA > sideAB && sideCA > sideBC){
+            hypotenuse = sideAB;
+            double[] legsOfTheTriangle3 = {sideAB, sideBC};
+            return legsOfTheTriangle3;
         }else{
-             /*Since rightTriangle has remained false till here, that means that the hypotenuse couldn't be found.
+            return null;
+        }
+    }
+
+    public boolean triangleTypeCheck(){
+        if(isolateHypotenuse() == null){
+            /*triangleLegs being null means that the hypotenuse couldn't be found.
             Triangle is therefore by default arbitrary */
             return rightTriangle = false;
+        }else{
+            double[] triangleLegs = isolateHypotenuse();
+            double base = Math.pow(triangleLegs[0],2);
+            double altitude = Math.pow(triangleLegs[1],2);
+            double hyp = Math.pow(hypotenuse,2);
+
+            if(hyp == base + altitude){
+                return rightTriangle = true;
+            }else{
+                return rightTriangle = false;
+            }
         }
     }
 
-    public double hypotenuse(){
-        double max = 0;
-
-
-        return max;
-    }
 
     public double computeArea(){
         double area = 0;

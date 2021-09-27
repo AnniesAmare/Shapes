@@ -10,16 +10,15 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 class TriangleTest {
-    Triangle triangle1 = new Triangle(1,2,3,4,5,0);
+    Triangle arbitraryTriangleTest = new Triangle(1,2,3,4,5,0);
     Triangle rightTriangleTest = new Triangle(2,4,-1,0,2,0);
-    int[] rightTriangleSides = {5,3,4};
-    double[] findTriangleSidesTest = {5,3,4};
+    double[] findTriangleSidesTestExpected = {5,3,4};
 
     @org.junit.jupiter.api.Test
-    void getCenterTest1() {
-        Point center1 = new Point(3,2);
-        assertEquals(triangle1.getCenter(),center1);
-        System.out.println(triangle1.getCenter());
+    void getCenterTest() {
+        Point expectedCenter = new Point(3,2);
+        assertEquals(arbitraryTriangleTest.getCenter(),expectedCenter);
+        System.out.println(arbitraryTriangleTest.getCenter());
     }
 
    /* @org.junit.jupiter.api.Test
@@ -31,8 +30,15 @@ class TriangleTest {
 
     @Test
     void triangleSidesCalculationTest(){
-        assertTrue(Arrays.equals(rightTriangleTest.findTriangleSides(), findTriangleSidesTest));
+        assertTrue(Arrays.equals(rightTriangleTest.findTriangleSides(), findTriangleSidesTestExpected));
         System.out.println(Arrays.toString(rightTriangleTest.findTriangleSides()));
+    }
+
+    @Test
+    void isolateHypotenuseTest(){
+        assertTrue(arbitraryTriangleTest.isolateHypotenuse() == null);
+        assertTrue(rightTriangleTest.isolateHypotenuse() != null);
+        assertFalse(rightTriangleTest.isolateHypotenuse() == null);
     }
 
     /*
