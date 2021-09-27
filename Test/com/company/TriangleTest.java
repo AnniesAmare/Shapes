@@ -12,18 +12,25 @@ class TriangleTest {
     Triangle rightTriangleTest = new Triangle(2,4,-1,0,2,0);
     int[] rightTriangleSides = {5, 3,4};
     int [] test;
+    boolean right = true;
 
     @org.junit.jupiter.api.Test
     void getCenterTest1() {
         Point center1 = new Point(3,2);
         assertEquals(triangle1.getCenter(),center1);
-        //System.out.println(triangle1.getCenter());
+        System.out.println(triangle1.getCenter());
+
+
+        //behold. this is the triangleTypetest working. just not where it should, and I don't get why...
+        assertTrue(rightTriangleTest.triangleTypeCheck());
+        System.out.println(rightTriangleTest.triangleTypeCheck());
     }
 
     @org.junit.jupiter.api.Test
-    void triangleTypeCheckTest(){
-        assertEquals(rightTriangleTest.triangleTypeCheck(), rightTriangleSides);
+    void  triangleTypeCheckTest(){
+        assertTrue(rightTriangleTest.triangleTypeCheck());
         System.out.println(rightTriangleTest.triangleTypeCheck());
+
     }
 
     /*
