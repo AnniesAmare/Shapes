@@ -78,6 +78,9 @@ public class Triangle extends Shape {
         boolean BC = false;
         boolean CA = false;
 
+
+        //I SHOULD METHOD THIS OUT SEPARATELY!!!!!!!!!!!!!!!!!
+
         //finding out which side of the triangle would be the hypotenuse if it were right-angled
         loop1: //labelling loop for later break statement
         for(int i = 0; i < sides.length; i++){
@@ -136,6 +139,13 @@ public class Triangle extends Shape {
             return rightTriangle = false;
         }
 
+    }
+
+    public double hypotenuse(){
+        double max = 0;
+
+
+        return max;
     }
 
     public double computeArea(){

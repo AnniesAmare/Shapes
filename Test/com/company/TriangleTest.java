@@ -21,13 +21,13 @@ class TriangleTest {
         System.out.println(triangle1.getCenter());
 
 
-        //behold. this is the triangleTypetest working. just not where it should, and I don't get why...
+        //Behold. this is the triangleTypetest working. just not where it should, and I don't get why...
         assertTrue(rightTriangleTest.triangleTypeCheck());
         System.out.println(rightTriangleTest.triangleTypeCheck());
     }
 
     @org.junit.jupiter.api.Test
-    void  triangleTypeCheckTest(){
+    void  triangleTypeCheckTest1(){
         assertTrue(rightTriangleTest.triangleTypeCheck());
         System.out.println(rightTriangleTest.triangleTypeCheck());
 
