@@ -2,7 +2,6 @@ package com.company;
 import java.awt.*;
 
 public class Rectangle extends Shape {
-
     Point cornerPoint;
     double height;
     double width;
