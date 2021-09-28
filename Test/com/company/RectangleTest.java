@@ -9,10 +9,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class RectangleTest {
     Point cp = new Point(1,1);
     Rectangle rectangle = new Rectangle(cp,4,6);
+    Rectangle rectangleA = new Rectangle(1,1,2,2);
+    Point inRectangle = new Point(3,3);
+    Point notInRectangle = new Point(1,1);
 
     @Test
     void getCenterTest() {
-        Point middle = new Point(3,4);
+        Point middle = new Point(4,3);
         assertEquals(rectangle.getCenter(),middle);
     }
     @org.junit.jupiter.api.Test
@@ -27,17 +30,16 @@ class RectangleTest {
 
     @org.junit.jupiter.api.Test
     void computeDistToTest(){
-        Rectangle rectangleA = new Rectangle(1,1,2,2);
-        assertEquals(rectangle.computeDistTo(rectangleA), 2);
+        assertEquals(rectangle.computeDistTo(rectangleA), 0);
     }
 
     @org.junit.jupiter.api.Test
     void includesPointTest1(){
-        //assertTrue(rectangle.includesPoint(inCircle));
+        assertTrue(rectangle.includesPoint(inRectangle));
     }
 
-    @org.junit.jupiter.api.Test
+    @org.junit.jupiter.api.Test         //bliver pt ikke brugt
     void includesPointTest2(){
-    //    assertFalse(rectangle.includesPoint(notInCircle));
+       assertFalse(rectangle.includesPoint(notInRectangle));
     }
 }
