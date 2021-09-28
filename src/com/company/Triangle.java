@@ -34,7 +34,6 @@ public class Triangle extends Shape {
 
     public Point getCenter() {
         this.center = calculateCenter(this.vertexA, this.vertexB, this.vertexC);
-        System.out.println(center + " F");
         return this.center;
     }
 
