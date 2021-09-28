@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 class TriangleTest {
+
     Triangle arbitraryTriangleTest = new Triangle(1,2,3,4,5,0);
     Triangle rightTriangleTest = new Triangle(2,4,-1,0,2,0);
     double[] findTriangleSidesTestExpected = {5,3,4}; //right-angled
@@ -19,36 +20,23 @@ class TriangleTest {
     void getCenterTest() {
         Point expectedCenter = new Point(3,2);
         assertEquals(arbitraryTriangleTest.getCenter(),expectedCenter);
-        //System.out.println(arbitraryTriangleTest.getCenter());
+        System.out.println(arbitraryTriangleTest.getCenter());
     }
 
     @Test
-    void triangleSidesCalculationTest(){
-        assertTrue(Arrays.equals(rightTriangleTest.findTriangleSides(), findTriangleSidesTestExpected));
-        //System.out.println(Arrays.toString(rightTriangleTest.findTriangleSides()));
-    }
-
-    @Test
-    void isolateHypotenuseTest(){
-        assertTrue(arbitraryTriangleTest.isolateHypotenuse() == null);
-        assertTrue(rightTriangleTest.isolateHypotenuse() != null);
-        assertFalse(rightTriangleTest.isolateHypotenuse() == null);
-    }
-
-    @org.junit.jupiter.api.Test
-    void  triangleTypeCheckTest1(){
-        assertTrue(rightTriangleTest.triangleTypeCheck());
-        assertFalse(arbitraryTriangleTest.triangleTypeCheck());
-        //System.out.println(rightTriangleTest.triangleTypeCheck());
-    }
-
-    @org.junit.jupiter.api.Test
-    void computeAreaTest1() { //this test needs fixing
+    void getAreaTest(){ //Test needs fixing. Right now it just confirms it works
+        Triangle Testing = new Triangle(-3,4,1,-2,5,5);
+        System.out.println(arbitraryTriangleTest.computeArea() + " here");
         System.out.println(rightTriangleTest.computeArea());
-        System.out.println(arbitraryTriangleTest.computeArea());
+
+        //result should be 26
+        System.out.println(Testing.computeArea());
+
     }
 
     @org.junit.jupiter.api.Test
     void computeCircTest1() {
     }
+
+
 }
