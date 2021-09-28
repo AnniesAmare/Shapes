@@ -1,8 +1,6 @@
 package com.company;
 import java.awt.*;
 
-//EUREKA ME!!!!!
-
 public class Triangle extends Shape {
     Point vertexA; //vertex means 'hjørne' in danish
     Point vertexB;
