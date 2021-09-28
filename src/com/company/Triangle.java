@@ -7,7 +7,6 @@ public class Triangle extends Shape {
     Point vertexA; //vertex means 'hjørne' in danish
     Point vertexB;
     Point vertexC;
-    Point center; //fancy (correct) geometric designation for the center of a triangle
 
     //Constructor
     public Triangle(int x1, int y1, int x2, int y2, int x3, int y3) {
@@ -15,7 +14,6 @@ public class Triangle extends Shape {
         this.vertexB = new Point(x2,y2);
         this.vertexC = new Point(x3,y3);
         this.center = getCenter();
-        System.out.println(this.center);
     }
 
     public Point calculateCenter(Point a, Point b, Point c){
