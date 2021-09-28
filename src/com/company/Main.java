@@ -24,9 +24,6 @@ public class Main {
         double dist2 = triangle.computeDistTo(triangle2);
         System.out.println(dist2);
 
-        double dist = circle.computeDistTo(triangle);
-        System.out.println(dist);
-
 
     }
 
