@@ -30,8 +30,9 @@ class RectangleTest {
 
     @org.junit.jupiter.api.Test
     void computeDistToTest(){
-        assertEquals(rectangle.computeDistTo(rectangleA), 0);
+        assertEquals(rectangle.computeDistTo(rectangleA), Math.sqrt(5));
     }
+
 
     @org.junit.jupiter.api.Test
     void includesPointTest1(){
