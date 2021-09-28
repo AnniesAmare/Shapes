@@ -9,7 +9,9 @@ public abstract class Shape {
     public abstract double computeArea(); //Computes the area of a given shape
     public abstract double computeCirc(); //Computes the circumference of a shape
     public double computeDistTo(Shape a){ //Computes the euclidean distance between the center of two shapes
+        System.out.print("reached here");
         double dist = getDist(this.center,a.center);
+        System.out.print(dist);
         return dist;
     }
 
@@ -18,6 +20,7 @@ public abstract class Shape {
         double y1 = a.getY();
         double x2 = b.getX();
         double y2 = b.getY();
+        System.out.println(x1 + y2 + x2 + y2);
         double powSum = Math.pow(x2-x1,2)+Math.pow(y2-y1,2);
         double dist = Math.sqrt(powSum);
         return dist;
