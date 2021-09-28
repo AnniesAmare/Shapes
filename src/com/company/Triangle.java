@@ -1,19 +1,17 @@
 package com.company;
 import java.awt.*;
 
-//EUREKA ME!!!!!
-
 public class Triangle extends Shape {
     Point vertexA; //vertex means 'hjørne' in danish
     Point vertexB;
     Point vertexC;
-    Point centroid; //fancy (correct) geometric designation for the center of a triangle
 
     //Constructor
     public Triangle(int x1, int y1, int x2, int y2, int x3, int y3) {
         this.vertexA = new Point(x1,y1);
         this.vertexB = new Point(x2,y2);
         this.vertexC = new Point(x3,y3);
+        this.center = getCenter();
     }
 
     public Point calculateCenter(Point a, Point b, Point c){
@@ -28,13 +26,13 @@ public class Triangle extends Shape {
         //Calculating center by using 'Centroid Formula' --> https://www.cuemath.com/centroid-formula/
         int cX = (int) (x1 + x2 + x3)/3; //Note that we are forced to use typecasting here,
         int cY = (int) (y1 + y2 + y3)/3; //because the getX/getY method returns a double
-        centroid = new Point(cX,cY);
-        return centroid;
+        Point center = new Point(cX,cY);
+        return center;
     }
 
     public Point getCenter() {
-        centroid = calculateCenter(this.vertexA, this.vertexB, this.vertexC);
-        return centroid;
+        this.center = calculateCenter(this.vertexA, this.vertexB, this.vertexC);
+        return this.center;
     }
 
     public double computeAreaFormula(Point a, Point b, Point c){
