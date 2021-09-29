@@ -25,9 +25,10 @@ public class Triangle extends Shape {
         double y3 = c.getY();
 
         //Calculating center by using 'Centroid Formula' --> https://www.cuemath.com/centroid-formula/
-        int cX = (int) (x1 + x2 + x3)/3; //Note that we are forced to use typecasting here,
-        int cY = (int) (y1 + y2 + y3)/3; //because the getX/getY method returns a double
-        Point center = new Point(cX,cY);
+        double cX = (x1 + x2 + x3)/3; //Note that we are forced to use typecasting here,
+        double cY = (y1 + y2 + y3)/3; //because the getX/getY method returns a double
+        Point center = new Point();
+        center.setLocation(cX,cY);
         return center;
     }
 
