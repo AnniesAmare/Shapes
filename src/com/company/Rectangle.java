@@ -36,9 +36,12 @@ public class Rectangle extends Shape {
     public double computeCirc() {
         return height*2+width*2;
     }
-    public boolean includesPoint(Point a)
-    {
-        if (cornerPoint.getX() < a.getX() && a.getX() < cornerPoint.getX() + width && cornerPoint.getY() < a.getY() && a.getY() < cornerPoint.getY() + height){
+    public boolean includesPoint(Point a) {
+        double cpX = cornerPoint.getX();
+        double cpY = cornerPoint.getY();
+        double aX = a.getX();
+        double aY = a.getY();
+        if (cpX < aX && aX < cpX+width && cpY < aX && aX < cpY+height){
             return true;
         } else {
             return false;
