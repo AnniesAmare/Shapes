@@ -4,6 +4,7 @@ import java.awt.*;
 //Anne-Thea arbejder på det her og den tilhørende test
 public class Circle extends Shape {
     double radius;
+    //center (inherited from Shapes)
 
     //Constructors
     public Circle(Point a, double radius) {

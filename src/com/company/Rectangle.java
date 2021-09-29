@@ -5,7 +5,7 @@ public class Rectangle extends Shape {
     Point cornerPoint;
     double height;
     double width;
-    //center
+    //center (inherited from Shapes)
 
     public Rectangle(Point cP, double h, double w){
         this.cornerPoint = cP;
