@@ -11,7 +11,7 @@ class RectangleTest {
     Rectangle rectangle = new Rectangle(cp,4,6);
     Rectangle rectangleA = new Rectangle(1,1,2,2);
     Point inRectangle = new Point(3,3);
-    Point notInRectangle = new Point(1,1);
+    Point notInRectangle = new Point(3,12);
 
     @Test
     void getCenterTest() {

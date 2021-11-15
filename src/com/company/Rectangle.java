@@ -41,7 +41,7 @@ public class Rectangle extends Shape {
         double cpY = cornerPoint.getY();
         double aX = a.getX();
         double aY = a.getY();
-        if (cpX < aX && aX < cpX+width && cpY < aX && aX < cpY+height){
+        if (cpX < aX && aX < cpX+width && cpY < aY && aY < cpY+height){
             return true;
         } else {
             return false;

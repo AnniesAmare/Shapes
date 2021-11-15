@@ -15,7 +15,7 @@ public class Triangle extends Shape {
         this.center = getCenter();
     }
 
-    public Point calculateCenter(Point a, Point b, Point c){
+    private Point calculateCenter(Point a, Point b, Point c){
         //Using the build.in Point-getter-function to get x and y for the vertex-coordinates
         double x1 = a.getX();
         double y1 = a.getY();
@@ -37,7 +37,7 @@ public class Triangle extends Shape {
         return this.center;
     }
 
-    public double computeAreaFormula(Point a, Point b, Point c){
+    private double computeAreaFormula(Point a, Point b, Point c){
          /*REFERENCES FOR CALCULATIONS
          Method --> Coordinate Geometry
          formula:
@@ -56,7 +56,6 @@ public class Triangle extends Shape {
 
         //the Math.abs method is to indicate "absolute value" (It's the two vertical bars in the formula)
         double area = 0.5 * Math.abs(x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2));
-
         return area;
     }
 
