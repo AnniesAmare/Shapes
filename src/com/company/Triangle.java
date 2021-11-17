@@ -15,6 +15,13 @@ public class Triangle extends Shape {
         this.center = getCenter();
     }
 
+    public Triangle(Point a, Point b, Point c){
+        this.vertexA = a;
+        this.vertexB = b;
+        this.vertexC = c;
+        this.center = getCenter();
+    }
+
     private Point calculateCenter(Point a, Point b, Point c){
         //Using the build.in Point-getter-function to get x and y for the vertex-coordinates
         double x1 = a.getX();

@@ -2,27 +2,52 @@ package com.company;
 import java.awt.*;
 
 public class Main {
+    public static void end() {
+        System.out.println("Calculation - Finished \n\n");
+    }
 
     public static void main(String[] args) {
+        //Examples for use of our Shapes-structure
         Point a = new Point(10,5);
+        Point b = new Point(15,10);
+        Point c = new Point(1,1);
         Circle circle = new Circle(3,3,10);
-        Triangle triangle = new Triangle(2,2,1,1,3,8);
-        Triangle triangle2 = new Triangle(4,4,5,5,8,8);
-        Triangle TriangleTest = new Triangle(1,2,3,4,5,0);
+        Triangle triangleABC = new Triangle(a,b,c);
+        Rectangle rectangle = new Rectangle(c, 20,15);
 
-        Point z = triangle.getCenter();
-        System.out.println(z);
+        //Get the center of a shape
+        System.out.println("Getting center of rectangle:");
+        System.out.println(rectangle.getCenter());
+        end();
 
-        double area1 = TriangleTest.computeArea();
-        System.out.println(area1);
+        //Calculate which shape has the biggest area.
+        System.out.println("Printing shape areas:");
+        System.out.println("Area of circle is = "+circle.computeArea());
+        System.out.println("Area of triangle is = "+triangleABC.computeArea());
+        System.out.println("Area of rectangle is = "+rectangle.computeArea());
+        end();
 
-        double dist0 = TriangleTest.computeDistTo(circle);
-        System.out.println(dist0);
+        //Calculate the distance between shapes
+        System.out.println("Printing distance from circle to triangle (center to center):");
+        System.out.println(circle.computeDistTo(triangleABC));
+        end();
 
-        double dist2 = triangle.computeDistTo(triangle2);
-        System.out.println(dist2);
+        //Calculate if triangle or rectangle has the biggest circumference
+        System.out.println("Printing shape circumferences:");
+        System.out.println("Circumference of triangle is = "+triangleABC.computeCirc());
+        System.out.println("Circumference of rectangle is = "+rectangle.computeCirc());
+        if (rectangle.computeCirc() > triangleABC.computeCirc()) System.out.println("Rectangle is bigger");
+        else if (rectangle.computeCirc() < triangleABC.computeCirc()) System.out.println("Triangle is bigger");
+        else System.out.println("Their circumferences are the same");
+        end();
 
-
+        //See if the center of the triangle is within the rectangle.
+        Point triangleCenter = triangleABC.center;
+        System.out.println("Calculating if point:");
+        System.out.println(triangleCenter);
+        System.out.println("is within the rectangle");
+        System.out.println("Result: "+rectangle.includesPoint(triangleCenter));
+        end();
     }
 
 }
